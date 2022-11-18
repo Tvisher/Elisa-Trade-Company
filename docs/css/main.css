@@ -212,7 +212,9 @@ th {
 .unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -khtml-user-select: none;
   -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
 }
 
@@ -282,7 +284,6 @@ li {
   font-size: 16px;
   line-height: 160%;
   display: flex;
-  width: -moz-fit-content;
   width: fit-content;
   align-items: center;
   justify-content: center;
@@ -323,8 +324,7 @@ button {
 .header__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .header__wrapper {
@@ -528,8 +528,7 @@ button {
 .main-bg-image video {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .main-bg-image::before {
@@ -562,8 +561,7 @@ button {
 .marquee__item img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 .marquee__item.small {
@@ -620,8 +618,7 @@ button {
 .about__col-img img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .form-sction {
@@ -635,6 +632,30 @@ button {
   max-width: 915px;
   width: 100%;
   margin: auto;
+  position: relative;
+}
+
+.contacts-form.send .contacts-form__success {
+  opacity: 1;
+  visibility: visible;
+}
+
+.contacts-form .contacts-form__success {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+  padding: 60px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ef7f1a;
+  z-index: 2;
+}
+
+.contacts-form .contacts-form__success .ico {
+  margin-bottom: 30px;
 }
 
 .form-title {
@@ -669,10 +690,31 @@ button {
   line-height: 19px;
 }
 
+::-webkit-input-placeholder {
+  /* WebKit, Blink, Edge */
+  color: #fff;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #fff;
+  opacity: 1;
+}
+
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
   color: #fff;
   opacity: 1;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
 }
 
 ::placeholder {
@@ -732,8 +774,7 @@ input::-webkit-inner-spin-button {
 .footer__logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 @media (max-width: 1280px) {
@@ -861,7 +902,8 @@ input::-webkit-inner-spin-button {
     width: 100%;
   }
 
-  .contacts-form {
+  .contacts-form,
+  .contacts-form .contacts-form__success {
     padding: 30px;
   }
 
