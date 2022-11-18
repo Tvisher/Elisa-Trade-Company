@@ -1,0 +1,29 @@
+// Size
+$mainFontSize: 16px;
+$mainFontWeight: 400;
+$mainLineHeight: 140%;
+
+$desktopWidth: 1890px;
+$smDesktopWidth: 980px;
+$tableWidth: 768px;
+$phoneWidth: 480px;
+$smPhoneWidth: 380px;
+
+// Main color
+$brand-black: #202020;
+
+// Font
+$mainFont: "SFProDisplay";
+$mainFontColor: #fff;
+
+@mixin pruning($c) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $c;
+  -webkit-box-orient: vertical;
+  line-clamp: $c;
+  box-orient: vertical;
+}
